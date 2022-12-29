@@ -1,0 +1,31 @@
+Needleman-Wunch:
+    two strings as input from a file
+    
+    Scoring Matrix:
+        S(A,B) = 1, when A == B
+        S(A,B) = -1, when A != B
+        d = -2
+        
+    Initialization Step:
+        F0,j = d*j
+        Fi,0 = d*i
+        F0,0 = 0
+        
+    Matrix= [m = |S1|+1 ] [n = |S2|+1]
+    
+    Equation: Fi,j= max( Fi-1,j-1 + S(Ai,Bj), Fi,j-1 + d, Fi-1,j +d )
+    
+    Scoring de la matrix = Fm,n
+        Scoring alto = están fuertemente relacionadas
+        Scoring bajo = No están fuertemente relacionadas
+        
+    Backtracking:
+        -Nos paramos en el último valor que calculamos (fm,n)
+        -Buscamos el mayor entre los valores de la fila, columna y diagonal anterior. 
+        
+        Significados: 
+        - from lager to smaller == matched
+        - from smaller to larger == mismatched
+        - valor mayor es de la fila o columna anterior == gap
+    
+    
